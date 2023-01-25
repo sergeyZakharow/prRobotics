@@ -7,7 +7,7 @@ typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseCl
 
 int main(int argc, char** argv){
    // Initializa
-  ros::init(argc, argv, "mo");
+  ros::init(argc, argv, "move_turtlebot");
 
   //tell the action
   MoveBaseClient ac("move_base", true);
@@ -23,7 +23,7 @@ int main(int argc, char** argv){
   goal.target_pose.header.frame_id = "map";
   goal.target_pose.header.stamp = ros::Time::now();
 
-float goals[2][3] = {{-2.0, 0.0, 1.57}, {20.0, 0.0, 1.57}};
+float goals[2][3] = {{-2.0, 0.0, 1.57}, {0.0, -20.0, 1.57}};
   for (int i=0; i<2; i++){
   // define a position and orientation
   goal.target_pose.pose.position.x = goals[i][0];
